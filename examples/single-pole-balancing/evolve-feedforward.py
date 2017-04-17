@@ -9,6 +9,7 @@ import pickle
 
 import cart_pole
 
+import sys;
 import neat
 import visualize
 
@@ -29,7 +30,8 @@ def eval_genome(genome, config):
         fitness = 0.0
         while sim.t < simulation_seconds:
             inputs = sim.get_scaled_state()
-            action = net.activate(inputs)
+            #pass dropout value to activate function
+            action = net.activate(inputs,config.genome_config.dropout);
 
             # Apply action to the simulated cart-pole
             force = cart_pole.discrete_actuator_force(action)

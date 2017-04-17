@@ -25,7 +25,8 @@ class DefaultGenomeConfig(object):
                 ConfigParameter('conn_add_prob', float),
                 ConfigParameter('conn_delete_prob', float),
                 ConfigParameter('node_add_prob', float),
-                ConfigParameter('node_delete_prob', float)]
+                ConfigParameter('node_delete_prob', float),
+                ConfigParameter('dropout',float)]
 
     allowed_connectivity = ['unconnected', 'fs_neat', 'full', 'partial']
     aggregation_function_defs = {'sum': sum, 'max': max, 'min': min, 'product': product}

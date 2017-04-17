@@ -1,6 +1,6 @@
 from neat.graphs import feed_forward_layers
 from neat.six_util import itervalues
-
+from scipy.stats import binom;
 
 class FeedForwardNetwork(object):
     def __init__(self, inputs, outputs, node_evals):
@@ -9,19 +9,26 @@ class FeedForwardNetwork(object):
         self.node_evals = node_evals
         self.values = dict((key, 0.0) for key in inputs + outputs)
 
-    def activate(self, inputs):
+    #pass dropout from the configuration file
+    def activate(self, inputs,dropout):
         if len(self.input_nodes) != len(inputs):
             raise Exception("Expected {0} inputs, got {1}".format(len(self.input_nodes), len(inputs)))
 
         for k, v in zip(self.input_nodes, inputs):
             self.values[k] = v
+        #calculate binominal vectors for each nodes
 
+        prob = binom.rvs(1, dropout, size=len(self.node_evals));
+        count = 0;
         for node, act_func, agg_func, bias, response, links in self.node_evals:
             node_inputs = []
+
             for i, w in links:
                 node_inputs.append(self.values[i] * w)
             s = agg_func(node_inputs)
-            self.values[node] = act_func(bias + response * s)
+            #multipy each node with binominal vectors
+            self.values[node] = act_func(bias + response * s)*prob[count];
+            count = count + 1;
 
         return [self.values[i] for i in self.output_nodes]
 
