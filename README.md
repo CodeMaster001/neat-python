@@ -2,7 +2,7 @@
 [![Code Issues](https://www.quantifiedcode.com/api/v1/project/2bb1d19f57684f4589cb4700f99dd75e/badge.svg)](https://www.quantifiedcode.com/app/project/2bb1d19f57684f4589cb4700f99dd75e)
 [![Coverage Status](https://coveralls.io/repos/CodeReclaimers/neat-python/badge.svg?branch=master&service=github)](https://coveralls.io/github/CodeReclaimers/neat-python?branch=master)
 
-# Reason for this Git Page "
+## Reason for this Git Page ## 
 
 This page provides code to discuss about NEAT  integeration in  a dropout environment. 
 
