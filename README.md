@@ -4,7 +4,7 @@
 
 ## Reason for this Git Page ## 
 
-This page provides code to discuss about NEAT  integeration in  a dropout environment. 
+This page provides code to discuss about NEAT  integeration in  a dropout environment. Please refer to dropout branch.
 
 ## About ##
 
